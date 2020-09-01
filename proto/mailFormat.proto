@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package pb;
+
+// The send function
+service Mail {
+  rpc Send (MailRequest) returns (MailStatus);
+}
+
+message MailRequest {
+  string from        = 1;
+  repeated string to = 2;
+  repeated string cc = 3;
+  string subject     = 4;
+  string body        = 5;
+  string type        = 6;
+}
+
+message MailStatus {
+  int32 status = 1;
+  string code  = 2;
+}
+
